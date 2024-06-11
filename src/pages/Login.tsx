@@ -1,3 +1,7 @@
+import LoginUser from '../component/LoginUser';
+
 function Login() {
-  <div className=""></div>;
+  return <LoginUser />;
 }
+
+export default Login;
