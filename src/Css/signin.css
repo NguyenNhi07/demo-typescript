@@ -1,6 +1,6 @@
-.container {
-    width: 419px;
-    height: 480px;
+.container-sign {
+    width: 480px;
+    height: 650px;
     box-shadow: 0 0 20px #b1b1b1;
     display: flex;
     justify-content: center;
@@ -8,10 +8,10 @@
     padding: 40px;
     border-radius: 16px;
     position: relative;
-    top: 150px;
+    top: 100px;
 }
 
-.login {
+.signin {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -34,7 +34,7 @@
     gap: 32px;
 }
 
-.login-input {
+.signin-input {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -50,8 +50,20 @@
     padding-inline: 35px;
     outline: none;
 }
+
+.input-name {
+    padding-inline: 10px;
+    width: 339px;
+    height: 48px;
+    padding: 12px 12px 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    outline: none;
+}
     
-.input-email-div {
+.input-email-div,
+.input-pass-div,
+.input-name-div {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -60,7 +72,6 @@
 
 .input-password {
     display: flex;
-   
     justify-content: space-between;
 }
 
@@ -69,47 +80,24 @@
     border: 1px solid red;
 }
 
-.img-email {
+.img-email-sign,
+.img-pass-sign {
     width: 18px;
     height: 18px;
     position: absolute;
-    top: 15px;
     left: 10px;
-    
-}
-
-.input-pass-div {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.img-pass {
-    width: 18px;
-    height: 18px;
-    position: absolute;
-    top: 15px;
-    left: 10px;
-}
-
-.img-eye {
-    width: 20px;
-    height: 20px;
-    width: 18px;
-    height: 18px;
-    position: absolute;
-    top: 15px;
-    right: 10px;
+    top: 43px;
 }
 
 .button {
     width: 339px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    top: -10px;
 }
 
-.btn-login {
+.btn-signin {
     width: 339px;
     height: 48px;
     padding: 0px 20px 0px 20px;
@@ -124,20 +112,6 @@
     border: none;
 }
 
-.btn-sign {
-    width: 339px;
-    height: 48px;
-    padding: 0px 20px 0px 20px;
-    margin: 5px 0 5px 0;
-    border-radius: 12px;
-    background-color: #fff;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: rgba(1, 86, 252, 1);
-    border: none;
-}
-
 .title-error {
     width: max-content;
     font-family: Roboto;
@@ -146,18 +120,4 @@
     line-height: 20px;
     text-align: left;
     color: rgba(251, 56, 50, 1);
-}
-
-span {
-    color: red;
-}
-
-label {
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
-    text-align: left;
-    color: rgba(114, 118, 136, 1);
-
 }
