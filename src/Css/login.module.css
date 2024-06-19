@@ -1,6 +1,14 @@
-.container-sign {
-    width: 480px;
-    height: 650px;
+.body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.container {
+    width: 419px;
+    height: 480px;
     box-shadow: 0 0 20px #b1b1b1;
     display: flex;
     justify-content: center;
@@ -8,16 +16,16 @@
     padding: 40px;
     border-radius: 16px;
     position: relative;
-    top: 100px;
+    top: 150px;
 }
 
-.signin {
+.login {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.header-title {
+.headerTitle {
     width: 339px;
     height: auto;
     font-family: "Roboto", sans-serif;
@@ -31,17 +39,17 @@
 .content {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    /* gap: 32px; */
 }
 
-.signin-input {
+.loginInput {
     display: flex;
     flex-direction: column;
     gap: 16px;
-
 }
-.input-email,
-.input-password {
+
+.inputEmail,
+.inputPassword {
     width: 339px;
     height: 48px;
     padding: 12px 12px 12px 16px;
@@ -50,54 +58,63 @@
     padding-inline: 35px;
     outline: none;
 }
-
-.input-name {
-    padding-inline: 10px;
-    width: 339px;
-    height: 48px;
-    padding: 12px 12px 12px 16px;
-    border-radius: 12px;
-    border: 1px solid #333;
-    outline: none;
-}
     
-.input-email-div,
-.input-pass-div,
-.input-name-div {
+.inputEmailDiv {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.input-password {
+.inputPassword {
     display: flex;
     justify-content: space-between;
 }
 
-.error-empty-email,
-.error-empty-pass {
+.errorEmpty {
     border: 1px solid red;
 }
 
-.img-email-sign,
-.img-pass-sign {
+.imgEmail {
     width: 18px;
     height: 18px;
     position: absolute;
+    top: 15px;
     left: 10px;
-    top: 43px;
+}
+
+.inputPassDiv {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.imgPass {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+}
+
+.imgEye {
+    width: 20px;
+    height: 20px;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
 }
 
 .button {
     width: 339px;
     display: flex;
     flex-direction: column;
-    position: relative;
-    top: -10px;
 }
 
-.btn-signin {
+.btnLogin {
     width: 339px;
     height: 48px;
     padding: 0px 20px 0px 20px;
@@ -112,7 +129,21 @@
     border: none;
 }
 
-.title-error {
+.btnSign {
+    width: 339px;
+    height: 48px;
+    padding: 0px 20px 0px 20px;
+    margin: 5px 0 5px 0;
+    border-radius: 12px;
+    background-color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(1, 86, 252, 1);
+    border: none;
+}
+
+.titleError {
     width: max-content;
     font-family: Roboto;
     font-size: 14px;
@@ -120,4 +151,17 @@
     line-height: 20px;
     text-align: left;
     color: rgba(251, 56, 50, 1);
+}
+
+span {
+    color: red;
+}
+
+label {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    color: rgba(114, 118, 136, 1);
 }

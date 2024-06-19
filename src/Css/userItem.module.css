@@ -1,0 +1,96 @@
+/* item */
+.userItemRow {
+    border-bottom: 1px solid #EEEEEE;
+    width: 888px;
+    display: flex;
+    justify-content: center;
+}
+
+.userItem {
+    width: 888px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 40px;
+}
+
+.userName {
+    width: 209px;
+    height: 27.96px;
+}
+
+.userEmail {
+    width: 209px;
+    height: 27.96px;
+    position: relative;
+    left: -10px;
+}
+
+.userDetails {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.userNameText,
+.userEmailText {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    letter-spacing: -1%;
+    color: #292D32;
+}
+
+.editButton {
+    width: 68px;
+    height: 29px;
+    border-radius: 4px;
+    border: 1px solid #00B087;
+    background-color: #16c0986e;
+    color: #008767;
+}
+
+.deleteButton {
+    width: 68px;
+    height: 29px;
+    border-radius: 4px;
+    border: 1px solid #DF0404;
+    background-color: #FFC5C5;
+    color: #DF0404;
+}
+
+.inputNewName {
+    width: 100%;
+    height: 26px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    letter-spacing: -1%;
+    color: #292D32;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.userSelect {
+    position: relative;
+    right: 50px;
+}
+
+select {
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+    height: 26px;
+}
+
+.userDepartment {
+    width: 230px;
+}
+
+.editUserName {
+    height: 26px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}

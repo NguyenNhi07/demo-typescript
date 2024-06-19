@@ -1,20 +1,17 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
-import Signin from './pages/Signin';
+import SignUp from './pages/SignUp';
 import Department from './pages/Department';
+import User from './pages/User';
 
 function App() {
   return (
     <>
-      <div>
-        <Link to="/login">Login</Link>
-        <Link to="/signin">Signin</Link>
-      </div>
-
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/department" element={<Department />} />;
+        <Route path="/user" element={<User />} />
       </Routes>
     </>
   );

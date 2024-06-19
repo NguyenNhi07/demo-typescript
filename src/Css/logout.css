@@ -1,0 +1,14 @@
+.logout-header {
+    margin-right: 40px;
+}
+
+.logout{
+    height: 34px;
+    width: 101px;
+    border-radius: 8px;
+    border: none;
+    background-color: #5932ea;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
