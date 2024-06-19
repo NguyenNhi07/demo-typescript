@@ -1,0 +1,70 @@
+.deleteWindow {
+    width: 500px;
+    height: 200px;
+    display: flex;
+    position: fixed;
+    bottom: -10px;
+    left: 650px;
+    top: 300px;
+    z-index: 100;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.windowdel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentWindow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 18px;
+    font-family: sans-serif;
+    line-height: 1.2;
+    margin-top: 50px;
+}
+
+.buttonWindow {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 30px;
+    position: relative;
+}
+
+.cancel {
+    background-color: rgb(243, 151, 151);
+    width: 65px;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+}
+
+.ok {
+    background-color: #80eea1;
+    width: 65px;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+}
+
+.off {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 0px;
+    top: 0;
+    background-color: rgb(179, 109, 109);
+    border: none;
+}

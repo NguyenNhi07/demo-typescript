@@ -1,0 +1,58 @@
+/* header department */
+.container-department {
+    display: flex;
+}
+
+.button-add-item {
+    height: 34px;
+    width: 113px;
+    position: relative;
+    top: 15px;
+    left: 30px;
+    border: none;
+    background-color: #5932ea;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.add-item-form {
+    z-index: 1;
+    position: absolute;
+    background-color: #fff;
+    height: 90px;
+    width: 450px;
+    box-shadow: 0 0 10px rgba(163, 163, 163, 0.3);
+    display: flex;
+    padding-inline: 20px;
+    justify-content: space-between;
+    align-items: center;
+    top: 151px;
+    left: 520px;
+}
+
+.input-add-item {
+    outline: none;
+    width: 300px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.submit-add-item-button {
+    height: 30px;
+    width: 100px;
+}
+
+.header-department {
+    position: relative;
+    right: -5px;
+}
+
+.department-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,0 +1,182 @@
+.body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.containerSign {
+    width: 480px;
+    height: 650px;
+    box-shadow: 0 0 20px #b1b1b1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 16px;
+    position: relative;
+    top: 100px;
+}
+
+.signin {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.headerTitle {
+    width: 339px;
+    height: auto;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 48px;
+    text-align: center;
+    color: #333;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    /* gap: 32px; */
+}
+
+.signinInput {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.inputEmail,
+.inputPassword {
+    width: 339px;
+    height: 48px;
+    padding: 12px 12px 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    padding-inline: 35px;
+    outline: none;
+}
+
+.inputName {
+    padding-inline: 10px;
+    width: 339px;
+    height: 48px;
+    padding: 12px 12px 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    outline: none;
+}
+
+.inputEmailDiv,
+.inputPassDiv,
+.inputNameDiv {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputPassword {
+    display: flex;
+    justify-content: space-between;
+}
+
+.errorEmpty {
+    border: 1px solid red;
+}
+
+.imgEmailSign,
+.imgPassSign {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 10px;
+    top: 43px;
+}
+
+.button {
+    width: 339px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 26px;
+}
+
+.btnSignin {
+    width: 339px;
+    height: 48px;
+    padding: 0px 20px 0px 20px;
+    margin: 5px 0 5px 0;
+    border-radius: 12px;
+    background-color: rgba(1, 86, 252, 1);
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+}
+
+.titleError {
+    width: max-content;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color: rgba(251, 56, 50, 1);
+}
+
+.coat {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.successSignUp {
+    display: flex;
+    z-index: 1000;
+    position: relative;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    gap: 32px;
+    justify-content: center;
+    top: 290px;
+    width: 480px;
+}
+
+.title {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+}
+
+.backToLogin {
+    width: 420px;
+    height: 48px;
+    padding: 0px 20px 0px 20px;
+    gap: 5px;
+    border-radius: 12px;
+    background-color: rgba(1, 86, 252, 1);
+    color: #fff;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.successSignUpWindow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,97 @@
+.dashboard {
+    padding-top: 30px;
+    width: 306px;
+    box-shadow: 0 10px 60px 0 #E2ECF9;
+    height: 1191px;
+}
+
+.dashboardHeader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-left: 25px;
+}
+
+.dashboardSections {
+    margin-top: 50px;
+    margin-left: 25px;
+}
+
+.dashboardIcon {
+    width: 37px;
+    height: 36.78px;
+}
+
+.dashboardTitle {
+    font-size: 26px;
+    line-height: 29px;
+    letter-spacing: 1%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+.departmentSection {
+    border-radius: 8px;
+    background-color: #fff;
+    width: 250px;
+    height: 43.73px;
+    border: none;
+}
+
+.userHeader {
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    position: relative;
+}
+
+.usersHeader {
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    position: relative;
+    top: 9px;
+}
+
+.departmentsIcon {
+    width: 24px;
+    height: 22.87px;
+}
+
+.departmentsTitle {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #9197B3;
+    position: relative;
+    top: 2px;
+}
+
+.usersSection {
+    border-radius: 8px;
+    background-color: #5932EA;
+    width: 250px;
+    height: 43.73px;
+    display: flex;
+    border: none;
+}
+
+.usersIcon {
+    width: 24px;
+    height: 23.86px;
+}
+
+.usersTitle {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #fff;
+    align-self: center;
+    position: relative;
+    bottom: 8px;
+}
