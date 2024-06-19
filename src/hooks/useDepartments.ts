@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { DepartmentType } from '../component/Type';
-import axios from 'axios';
 import { customAxios } from '../config/axios';
 
 function useDepartments(useDepartments?: boolean) {

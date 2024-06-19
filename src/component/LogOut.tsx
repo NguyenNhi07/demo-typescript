@@ -4,7 +4,7 @@ import { customAxios } from '../config/axios';
 
 function LogOut() {
   const navigate = useNavigate();
-  const logoutHadle: () => void = async () => {
+  const logoutHandle: () => void = async () => {
     try {
       await customAxios.post('/auth/logout');
       localStorage.removeItem('token');
@@ -16,7 +16,7 @@ function LogOut() {
   return (
     <>
       <div className="logout-header">
-        <button onClick={() => logoutHadle()} className="logout">
+        <button onClick={() => logoutHandle()} className="logout">
           <div className="logout-content">
             <p className="logout-text">Log Out</p>
           </div>

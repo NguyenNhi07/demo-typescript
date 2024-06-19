@@ -4,6 +4,7 @@ import SideBarUser from '../component/SideBarUser';
 import UserItem from '../component/UserItem';
 import Delete from '../component/Delete';
 import { customAxios } from '../config/axios';
+import LogOut from '../component/LogOut';
 
 function User() {
   type UsersType = {
@@ -57,6 +58,7 @@ function User() {
                     <div className="header-title">
                       <h1 className="user-title">All Users</h1>
                     </div>
+                    <LogOut />
                   </div>
 
                   <div className="search-container">
