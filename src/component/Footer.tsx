@@ -1,30 +1,30 @@
+import axios from 'axios';
 import '../Css/footer.css';
+import { customAxios } from '../config/axios';
+import { useEffect, useState } from 'react';
 
 function Footer() {
+  const [pages, setPages] = useState<number>(0);
+  console.log('🚀 ~ Footer ~ pages:', pages);
   return (
     <>
       <div className="footer">
         <div className="pagination">
-          <button className="previous-page">
+          {/* <button className="previous-page">
             <div className="pagination-button-content">
               <p className="pagination-arrow">&lt;</p>
             </div>
-          </button>
+          </button> */}
+
           <div className="page-numbers">
-            <button className="page-number active">1</button>
-            <button className="page-number">2</button>
-            <button className="page-number">3</button>
-            <button className="page-number">4</button>
-            <button className="page-number ellipsis">...</button>
-            <button className="page-number">
-              <p className="page-number-text">40</p>
-            </button>
+            <button className="page-number active">{}</button>
           </div>
-          <button className="next-page">
+
+          {/* <button className="next-page">
             <div className="pagination-button-content">
               <p className="pagination-arrow">&gt;</p>
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
     </>

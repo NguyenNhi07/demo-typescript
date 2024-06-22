@@ -1,34 +1,29 @@
-import { useEffect } from 'react';
 import { useFormik } from 'formik';
 import { useState } from 'react';
+import { customAxios } from '../config/axios';
 import * as Yup from 'yup';
 import SideBar from '../component/sideBar';
-import Footer from '../component/Footer';
 import Delete from '../component/Delete';
+import LogOut from '../component/LogOut';
 import DepartmentItem from '../component/DepartmentItem';
+import useDepartments from '../hooks/useDepartments';
 import '../Css/department.css';
 import '../Css/heading.css';
-import useDepartments from '../hooks/useDepartments';
-import LogOut from '../component/LogOut';
-import { customAxios } from '../config/axios';
+import PageNation from '../component/PageNation';
+import { useSearchParams } from 'react-router-dom';
+import SearchItem from '../component/SearchItem';
 
 function Department() {
-  type DepartmentType = {
-    id: number;
-    name: string;
-  };
-
+  let [searchParams, _setSearchParams] = useSearchParams();
   const [addItem, setAddItem] = useState<boolean>(false);
   const [showDelete, setShowDelete] = useState<boolean>(false);
   const [prepareDelete, setPrepareDelete] = useState<number>(0);
 
-  const [departments, setDepartments] = useState<DepartmentType[]>([]);
-
-  const data = useDepartments(addItem);
-
-  useEffect(() => {
-    if (data) setDepartments(data);
-  }, [data]);
+  const department = useDepartments({
+    limit: 5,
+    page: Number(searchParams.get('page')) || 1,
+    search: searchParams.get('search') || '',
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -39,7 +34,7 @@ function Department() {
     }),
     onSubmit: async (values) => {
       try {
-        const result = await customAxios.post('/department', {
+        await customAxios.post('/department', {
           name: values.name,
         });
         setAddItem(false);
@@ -53,7 +48,7 @@ function Department() {
   const handleDelete: (id: number) => void = async (id) => {
     try {
       await customAxios.delete(`/department/${id}`);
-      setDepartments(departments.filter((department) => department.id !== id));
+      department.items = department.items.filter((department) => department.id !== id);
       setShowDelete(false);
     } catch (error: any) {
       console.error('Error deleting department:', error.message);
@@ -88,23 +83,8 @@ function Department() {
                     Add New Item
                   </button>
 
-                  <div className="search-container">
-                    <div className="search-input-container">
-                      <button className="search-icon-button">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="search-icon"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                        </svg>
-                      </button>
-                      <input type="text" className="search-input" placeholder="Search" />
-                    </div>
-                  </div>
+                  {/* search */}
+                  <SearchItem />
 
                   <div className="department-heading">
                     <div className="department-header-row">
@@ -121,21 +101,20 @@ function Department() {
             </div>
 
             {/* Department List */}
-            {departments.map((department) => (
+            {department.items.map((departmentItem) => (
               <>
                 <DepartmentItem
-                  key={department.id}
-                  name={department.name}
-                  department={department}
-                  departments={departments}
-                  setDepartments={setDepartments}
+                  key={departmentItem.id}
+                  name={departmentItem.name}
+                  departmentItem={departmentItem}
+                  departments={department.items}
                   setShowDelete={setShowDelete}
                   setPrepareDelete={setPrepareDelete}
                 />
               </>
             ))}
 
-            <Footer />
+            <PageNation totalPage={department.meta.totalPages} />
           </div>
 
           {addItem && (

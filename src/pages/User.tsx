@@ -1,43 +1,54 @@
-import { useEffect, useState } from 'react';
-import Footer from '../component/Footer';
+import { useState } from 'react';
+import { customAxios } from '../config/axios';
 import SideBarUser from '../component/SideBarUser';
 import UserItem from '../component/UserItem';
 import Delete from '../component/Delete';
-import { customAxios } from '../config/axios';
 import LogOut from '../component/LogOut';
+import '../Css/user.css';
+import { useSearchParams } from 'react-router-dom';
+import useUser from '../hooks/useUser';
+import PageNationUser from '../component/PageNationUser';
+import SearchItemUser from '../component/SearchItemUser';
+import useSWR, { mutate } from 'swr';
+import axios from 'axios';
+import { UsersType } from '../config/Type';
 
 function User() {
-  type UsersType = {
-    id: number;
-    username: string;
-    department: string;
-    email: string;
-    departmentId: number;
-  };
-  const [users, setUsers] = useState<UsersType[]>([]);
   const [updateCount, setUpdateCount] = useState(0);
   const [showDelete, setShowDelete] = useState<boolean>(false);
   const [prepareDelete, setPrepareDelete] = useState<number>(0);
+  const [seachParams, _setSearchParams] = useSearchParams();
 
-  useEffect(() => {
-    async function fetchUser() {
-      const userAPI = '/user/list';
-      try {
-        const result = await customAxios.get(userAPI);
-        setUsers(result.data.data.items);
-      } catch (error: any) {
-        console.error('Error:', error.message);
-      }
-    }
-    fetchUser();
-  }, [updateCount]);
+  // const user = useUser({
+  //   limit: 3,
+  //   page: Number(seachParams.get('page') || 1),
+  //   search: seachParams.get('search') || '',
+  //   updateCount,
+  // });
+
+  const {
+    data: user,
+    error,
+    isLoading,
+  } = useSWR<{
+    items: UsersType[];
+    meta: any;
+  }>('/user/list', async () => {
+    const res = await customAxios.get(
+      `/user/list?limit=3&page=${Number(seachParams.get('page') || 1)}&search=${
+        seachParams.get('search') || ''
+      }`,
+    );
+    return res.data.data;
+  });
+
+  if (isLoading) return <>Loading</>;
 
   const handleDelete: (id: number) => void = async (id) => {
     try {
       await customAxios.delete(`/user/${id}`);
-      setUsers(users.filter((user) => user.id !== id));
       setShowDelete(false);
-      setUpdateCount(updateCount + 1);
+      mutate('/user/list');
     } catch (error: any) {
       console.log(error.message);
     }
@@ -61,23 +72,8 @@ function User() {
                     <LogOut />
                   </div>
 
-                  <div className="search-container">
-                    <div className="search-input-container">
-                      <button className="search-icon-button">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="search-icon"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                        </svg>
-                      </button>
-                      <input type="text" className="search-input" placeholder="Search" />
-                    </div>
-                  </div>
+                  {/* Search Item */}
+                  <SearchItemUser />
 
                   <div className="user-heading">
                     <div className="user-header-row">
@@ -100,12 +96,11 @@ function User() {
             </div>
 
             {/* User List */}
-            {users.map((user) => (
+            {/* {user?.items.map((userItem) => (
               <UserItem
-                key={user.id}
-                user={user}
-                users={users}
-                setUsers={setUsers}
+                key={userItem.id}
+                user={userItem}
+                users={user.items}
                 setUpdateCount={setUpdateCount}
                 updateCount={updateCount}
                 setShowDelete={setShowDelete}
@@ -113,7 +108,27 @@ function User() {
               />
             ))}
 
-            <Footer />
+            <PageNationUser totalPage={user?.meta.totalPages} /> */}
+
+            {isLoading ? (
+              <div className="loading">Loading...</div>
+            ) : (
+              <>
+                {user?.items.map((userItem) => (
+                  <UserItem
+                    key={userItem.id}
+                    user={userItem}
+                    users={user.items}
+                    setUpdateCount={setUpdateCount}
+                    updateCount={updateCount}
+                    setShowDelete={setShowDelete}
+                    setPrepareDelete={setPrepareDelete}
+                  />
+                ))}
+
+                <PageNationUser totalPage={user?.meta.totalPages} />
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import style from '../Css/sidebarUser.module.css';
 import setting from '../image/setting 1.png';
 import keySquare from '../image/key-square-4.png';
 import useSquare from '../image/user-square-5.png';
-import { useNavigate } from 'react-router-dom';
 
 function SideBar() {
   const navigate = useNavigate();

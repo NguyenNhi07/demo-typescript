@@ -1,37 +1,35 @@
 import useDepartments from '../hooks/useDepartments';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from '../Css/userItem.module.css';
-import { UsersType } from './Type';
+import { UsersType } from '../config/Type';
 import Select from 'react-select';
 import { customAxios } from '../config/axios';
 
 function UserItem({
   user,
   users,
-  setUsers,
-  setUpdateCount,
   updateCount,
+  setUpdateCount,
   setShowDelete,
   setPrepareDelete,
 }: {
-  user: {
-    id: number;
-    username: string;
-    department: string;
-    email: string;
-    departmentId: number;
-  };
+  user: UsersType;
   users: UsersType[];
-  setUsers: (param: any) => void;
-  setUpdateCount: (param: number) => void;
   updateCount: number;
+  setUpdateCount: (param: number) => void;
   setShowDelete: (param: boolean) => void;
   setPrepareDelete: (param: number) => void;
 }) {
-  const data = useDepartments();
-  console.log('🚀 ~ data:', data);
+  const data = useDepartments({});
 
   const [selectDepartment, setSelectDepartment] = useState<{ name: string; id: number }>();
+  useEffect(() => {
+    setSelectDepartment({
+      name: data.items.find((item) => item.id === user.departmentId)?.name || '',
+      id: user.departmentId,
+    });
+  }, [data.items.length]);
+
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [editName, setEditName] = useState(user.username);
 
@@ -51,7 +49,7 @@ function UserItem({
 
   const updateUserName: (id: number, newName: string) => void = (id, newName) => {
     const newUserName = users.map((user) => (user.id === id ? { ...user, name: newName } : user));
-    setUsers(newUserName);
+    users = newUserName;
   };
 
   const handleCancel: () => void = () => {
@@ -82,7 +80,8 @@ function UserItem({
             {isEdit ? (
               <div className={style.userSelect}>
                 <Select
-                  options={data}
+                  value={selectDepartment}
+                  options={data.items}
                   getOptionLabel={(option) => option.name}
                   getOptionValue={(option) => String(option.id)}
                   onChange={(e) => {
@@ -93,7 +92,9 @@ function UserItem({
             ) : (
               <div className={style.userDepartment}>
                 <p className={style.userDepartmentText}>
-                  {data.find((item) => item.id === user.departmentId)?.name}
+                  {data.items.length
+                    ? data.items.find((item) => item.id === user.departmentId)?.name
+                    : 'loading'}
                 </p>
               </div>
             )}

@@ -1,16 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useFormik } from 'formik';
+import { customAxios } from '../config/axios';
 import * as Yup from 'yup';
 import envelope from '../image/envelope.png';
 import lock from '../image/lock.png';
 import eyeSlash from '../image/eye-slash.png';
 import style from '../Css/login.module.css';
-import { customAxios } from '../config/axios';
 
 function Login() {
   let navigate = useNavigate();
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string>('');
+  const [eye, setEye] = useState<boolean>(false);
 
   const formik = useFormik({
     initialValues: {
@@ -72,7 +73,14 @@ function Login() {
                   {...formik.getFieldProps('password')}
                 />
                 <img className={style.imgPass} src={lock} alt="" />
-                <img className={style.imgEye} src={eyeSlash} alt="" />
+                <button
+                  onClick={() => {
+                    setEye(!eye);
+                  }}
+                  className="button-eye"
+                >
+                  <img className={style.imgEye} src={eyeSlash} alt="" />
+                </button>
                 {formik.touched.password && formik.errors.password ? (
                   <div className={style.errorPass}>
                     <p className={style.titleError}>{formik.errors.password}</p>

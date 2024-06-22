@@ -1,6 +1,6 @@
-import '../Css/logout.css';
 import { useNavigate } from 'react-router-dom';
 import { customAxios } from '../config/axios';
+import '../Css/logout.css';
 
 function LogOut() {
   const navigate = useNavigate();

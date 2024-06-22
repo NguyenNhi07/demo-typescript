@@ -1,11 +1,11 @@
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { customAxios } from '../config/axios';
 import * as Yup from 'yup';
 import envelope from '../image/envelope.png';
 import lock from '../image/lock.png';
 import style from '../Css/signUp.module.css';
-import { useState } from 'react';
-import { customAxios } from '../config/axios';
 
 function SignUp() {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -55,7 +55,7 @@ function SignUp() {
     }),
     onSubmit: async (values) => {
       try {
-        const result = await customAxios.post('/sign-up', {
+        await customAxios.post('/sign-up', {
           username: values.name,
           email: values.email,
           password: values.password,

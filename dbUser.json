@@ -1,0 +1,18 @@
+{
+    "users": [
+        {
+            "name": "Jane Cooper",
+            "email": "jane@microsoft.com",
+            "department": {
+                "name": "Human Resources (HR)"
+            }
+        },
+        {
+            "name": "Floyd Miles",
+            "email": "floyd@yahoo.com",
+            "department": {
+                "name": "Finance"
+            }
+        }
+    ]
+  }

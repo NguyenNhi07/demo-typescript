@@ -8,4 +8,5 @@ export type UsersType = {
   username: string;
   department: string;
   email: string;
+  departmentId: number;
 };

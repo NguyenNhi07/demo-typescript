@@ -14,14 +14,13 @@
     margin-left: 40px;
 }
 
-.userName {
+.userName,
+.userEmail {
     width: 209px;
     height: 27.96px;
 }
 
 .userEmail {
-    width: 209px;
-    height: 27.96px;
     position: relative;
     left: -10px;
 }
@@ -93,4 +92,10 @@ select {
     height: 26px;
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.userDepartmentText,
+.userSelect {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
 }
